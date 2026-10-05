@@ -9,9 +9,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Question {
+public class Report {
 
-    private String question;
+    private Long min_marks;
+
+    private Long max_marks;
 
     private Long quizId;
 }

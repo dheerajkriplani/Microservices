@@ -24,4 +24,6 @@ public class Quiz {
     private String title;
 
     transient private List<Question> questions;//transient because we don't want to store questions in the database, we will get them from the question service
+
+    transient private Report report;
 }
