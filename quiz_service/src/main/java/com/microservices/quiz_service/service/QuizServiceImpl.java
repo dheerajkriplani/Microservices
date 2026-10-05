@@ -21,6 +21,9 @@ public class QuizServiceImpl implements QuizService {
     @Autowired
     private ReportClient reportClient;
 
+    @Autowired
+    private ReportRestClient reportRestClient;
+
 
     @Override
     public Quiz add(Quiz quiz) {
@@ -33,7 +36,8 @@ public class QuizServiceImpl implements QuizService {
 
         List<Quiz> quizList=quizzes.stream().map(quiz->{
             quiz.setQuestions(questionClient.getQuestionsOfQuiz(quiz.getId()));
-            quiz.setReport(reportClient.getReportOfQuiz(quiz.getId()));
+//            quiz.setReport(reportClient.getReportOfQuiz(quiz.getId()));
+            quiz.setReport(reportRestClient.getReportOfQuiz(quiz.getId()));
             return quiz;
         }).collect(Collectors.toList());
 
@@ -44,7 +48,8 @@ public class QuizServiceImpl implements QuizService {
     public Quiz get(Long id) {
         Quiz quiz=quizRepository.findById(id).orElse(null);
         quiz.setQuestions(questionClient.getQuestionsOfQuiz(quiz.getId()));
-        quiz.setReport(reportClient.getReportOfQuiz(quiz.getId()));
+//        quiz.setReport(reportClient.getReportOfQuiz(quiz.getId()));
+        quiz.setReport(reportRestClient.getReportOfQuiz(quiz.getId()));
         return quiz;
     }
 
