@@ -4,7 +4,7 @@ Spring Boot microservices demo covering **Eureka Server** (service registry), **
 
 ## Tech Stack
 
-- Java 21
+- Java 21 (min 17 )
 - Spring Boot 4.1.1
 - Spring Cloud 2025.1.3
 
